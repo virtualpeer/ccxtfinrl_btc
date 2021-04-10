@@ -34,7 +34,7 @@ class BtcTradingEnv(gym.Env):
         self.env_name = 'BtcTradingEnv-v1'
         self.data_list = ['open', 'high', 'close', 'volume', 'macd',
                               'boll_ub','boll_lb','rsi_30', 'cci_30','dx_30',
-                              'close_30_sma','close_60_sma', 'turbulence']
+                              'close_30_sma','close_60_sma']
         self.state_dim = len(['account','total_asset','position']\
                              + self.data_list)
         self.action_space = spaces.Box(low = -1, high = 1,shape = (1,))
@@ -137,10 +137,6 @@ class BtcTradingEnv(gym.Env):
         date = datetime.datetime.fromtimestamp(timestamp)
         return date
 
-processed = pd.read_csv('processed_t.csv', index_col=0)
-env = BtcTradingEnv(dataset=processed)
-from stable_baselines3.common.env_checker import check_env
-check_env(env)
 
 
 

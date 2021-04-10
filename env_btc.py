@@ -8,12 +8,11 @@ import datetime
 class BtcTradingEnv(gym.Env):
     metadata = {'render.modes': ['human']}
 
-    def __init__(self, dataset, initial_account=1e6, transaction_fee_percent=1e-3, if_train=True,
+    def __init__(self, dataset, initial_account=1e6, transaction_fee_percent=1e-3,
                  if_short_selling=False, max_step = None): #dataset: pd dataframe
         self.initial_account = initial_account
         self.transaction_fee_percent = transaction_fee_percent
         self.df = dataset
-        self.if_train = if_train
         self.if_short_selling = if_short_selling
         self.start_time = dataset[0:1]['date'].values[0]
         self.time = 0
@@ -44,8 +43,6 @@ class BtcTradingEnv(gym.Env):
         indicators = sum([self.current_df[ind].values.tolist() for ind in self.data_list], [])
         self.state = np.array(account_info + indicators)
         self.action_dim = 1
-        self.if_discrete = False
-        self.target_reward = 1.25  # convergence 1.5
         if max_step == None:
             self.max_step = self.df.shape[0]
         else:

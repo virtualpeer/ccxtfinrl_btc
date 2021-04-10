@@ -3,12 +3,12 @@ import pandas as pd
 from finrl.preprocessing.data import data_split
 from finrl.model.models import DRLAgent
 
-start_time = '1609429500000'
-mid = str(int(start_time)+1000*60*30721)
+start_time = '1609429500000' #start time in timestamp 
+mid = str(int(start_time)+1000*60*30721) 
 end_time = str(int(start_time)+1000*60*50001)
-processed = pd.read_csv('processed.csv', index_col=0)
-train = data_split(processed, int(start_time), int(mid))
-trade = data_split(processed, int(mid), int(end_time))  
+processed = pd.read_csv('processed.csv', index_col=0) #read the csv file
+train = data_split(processed, int(start_time), int(mid)) #training set
+trade = data_split(processed, int(mid), int(end_time)) #validation set
 env_train = env_btc.BtcTradingEnv(dataset=train, if_short_selling=False)
 agent = DRLAgent(env = env_train)
 PPO_PARAMS = {
@@ -27,5 +27,6 @@ df_account_value, df_actions = DRLAgent.DRL_prediction(
     environment = env_trade)
 
 # df_account_value.to_csv('account_value.csv')
+# df_actions.to_csv('account_value.csv')
 print('return:' + str(((df_account_value[-2:-1]['account_value'].values[0])/1e6)-1))
 

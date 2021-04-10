@@ -13,9 +13,9 @@ print(df[0:5])
 fe = FeatureEngineer(
                     use_technical_indicator=True,
                     tech_indicator_list = config.TECHNICAL_INDICATORS_LIST,
-                    use_turbulence=True,
+                    use_turbulence=False,
                     user_defined_feature = False)
         
 processed = fe.preprocess_data(df)
 print(processed[0:10])
-processed.to_csv('processed_t.csv')
+processed.to_csv('processed.csv')

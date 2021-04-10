@@ -6,7 +6,7 @@ from finrl.model.models import DRLAgent
 start_time = '1609429500000'
 mid = str(int(start_time)+1000*60*30721)
 end_time = str(int(start_time)+1000*60*50001)
-processed = pd.read_csv('processed_t.csv', index_col=0)
+processed = pd.read_csv('processed.csv', index_col=0)
 train = data_split(processed, int(start_time), int(mid))
 trade = data_split(processed, int(mid), int(end_time))  
 env_train = env_btc.BtcTradingEnv(dataset=train, if_short_selling=False)

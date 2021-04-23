@@ -2,7 +2,7 @@
 
 First run train_eval.py file. It trains and evaluates the model. The cumulative return and the model are saved under './AgentDQN/BtcTradingEnv-v3_0'
 
-The target reward is set to be 1.04 in the BtcTradingEnv3.py file. It is often the case that the target reward cannot converges to such a level. You may KeyboardInterrupt the training process by pressing ctrl+C, then run load_eval.py file to do load the saved model and evaluate it.
+The target reward is set to be 1.04 in the BtcTradingEnv3.py file. It is often the case that the target reward cannot converges to such a level. You may KeyboardInterrupt the training process by pressing ctrl+C, then run load_eval.py file to load the saved model and evaluate it.
 
 You can see some results under ./results .  The subfile is named by explore_rate for agentDQN. For example, explore_rate_01 means the explore_rate is set to be 0.1 for agentDQN. The change of explore_rate is achieved by changing explore_rate in elegantrl/agent.py
 

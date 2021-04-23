@@ -21,9 +21,6 @@ args.net_dim = 2 ** 9 # change a default hyper-parameters
 args.batch_size = 2 ** 8
 "TotalStep: 2e3, TargetReward: , UsedTime: 10s"
 
-# args.env = PreprocessEnv(env=gym.make('LunarLander-v2'))
-# args.net_dim = 2 ** 8
-# args.batch_size = 2 ** 8
 
 '''train and evaluate'''
 train_and_evaluate(args)
